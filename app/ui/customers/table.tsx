@@ -1,13 +1,10 @@
 import { lusitana } from '@/app/fonts';
-import { FormattedCustomersTable } from '@/app/lib/definitions';
 import Search from '@/app/ui/search';
 import Image from 'next/image';
+import { fetchFilteredCustomers } from '@/app/lib/data';
 
-export default async function CustomersTable({
-  customers,
-}: {
-  customers: FormattedCustomersTable[];
-}) {
+export default async function CustomersTable({ query }: { query: string }) {
+  const customers = await fetchFilteredCustomers(query);
   return (
     <div className="w-full">
       <h1 className={`${lusitana.className} mb-8 text-xl md:text-2xl`}>
