@@ -3,8 +3,12 @@ import '@/app/ui/global.css';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Acme',
-  description: 'Welcome to Acme.',
+  title: {
+    template: '%s | Acme',
+    default: 'Acme Financial Dashboard',
+  },
+  description: 'The official Next.js Learn Dashboard built with App Router.',
+  metadataBase: new URL('https://acme-financial-dashboard.vercel.app/'),
 };
 
 export default function RootLayout({
